@@ -1,12 +1,23 @@
 $(function() {
-  var page_list = {top: "TOPページ", about: "〇〇についてページ",company:"会社情報"}
   var page_id;
+  var page_list  = new Array();
+  page_list["top"]  = function(){
+  	alert("TOPページを表示しています"); 
+  }
 
-  $.each( page_list, function( key, value ) {
-    page_id = document.getElementById(key);
+  page_list["about"]  = function(){
+  	alert("ABOUTページを表示しています"); 
+  }
+  
+  page_list["company"]  = function(){
+  	alert("COMPANYページを表示しています"); 
+  }
+key = Object.keys(page_list);
+  $.each( key, function( key, value ) {
+    page_id = document.getElementById(value);
     console.log(page_id);
     if(page_id){
-      alert(page_list[page_id.id]); 
+      page_list[page_id.id](); 
       return false;
     }
   });
